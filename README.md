@@ -1,6 +1,5 @@
 # Dev Symphony 🎵
 
-Dev Symphony is a lightweight open-source VS Code extension designed to help developers monitor their coding activity. Track how much time you spend coding in different programming languages and gain insights through daily and weekly statistics.
 
 ## Features ✨
 
