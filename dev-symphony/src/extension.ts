@@ -10,16 +10,22 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "dev-symphony" is now active!');
 
+	const showTimeCommand = vscode.commands.registerCommand("devsymphony.showtime" , () => {
+		const now = new Date();
+		const currentTime = `${now.getHours()} h : ${now.getMinutes()} m `;
+		vscode.window.showInformationMessage(`Current time : ${currentTime}`)
+	})
+
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('dev-symphony.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Dev Symphony!');
-	});
+	// const disposable = vscode.commands.registerCommand('dev-symphony.helloWorld', () => {
+	// 	// The code you place here will be executed every time your command is executed
+	// 	// Display a message box to the user
+	// 	vscode.window.showInformationMessage('Hello World from Dev Symphony!');
+	// });
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(showTimeCommand);
 }
 
 // This method is called when your extension is deactivateda
