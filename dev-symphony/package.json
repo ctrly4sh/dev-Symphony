@@ -14,11 +14,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "dev-symphony.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "devsymphony.showTimeCommand",
+        "command": "devsymphony.showTime",
         "title": "Show Current Time"
       }
     ]

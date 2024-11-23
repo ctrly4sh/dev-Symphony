@@ -1,32 +1,26 @@
 // The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 // This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  // Log to confirm activation
+  console.log('Congratulations, your extension "dev-symphony" is now active!');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "dev-symphony" is now active!');
+  /* First Feature 🚀 */
 
-	const showTimeCommand = vscode.commands.registerCommand("devsymphony.showtime" , () => {
-		const now = new Date();
-		const currentTime = `${now.getHours()} h : ${now.getMinutes()} m `;
-		vscode.window.showInformationMessage(`Current time : ${currentTime}`)
-	})
+  // Register the "Show Current Time" command
+  const showTimeCommand = vscode.commands.registerCommand(
+    "devsymphony.showTime", // Command ID (must match package.json)
+    () => {
+      const now = new Date();
+      const currentTime = `${now.getHours()}h:${now.getMinutes()}m:${now.getSeconds()}s`;
+      vscode.window.showInformationMessage(`Current Time: ${currentTime}`);
+    }
+  );
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	// const disposable = vscode.commands.registerCommand('dev-symphony.helloWorld', () => {
-	// 	// The code you place here will be executed every time your command is executed
-	// 	// Display a message box to the user
-	// 	vscode.window.showInformationMessage('Hello World from Dev Symphony!');
-	// });
-
-	context.subscriptions.push(showTimeCommand);
+  // Add the command to the subscriptions
+  context.subscriptions.push(showTimeCommand);
 }
 
-// This method is called when your extension is deactivateda
-export function deactivate(){}
+// This method is called when your extension is deactivated
+export function deactivate() {}
